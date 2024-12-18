@@ -1,4 +1,4 @@
-package ChocolateFactory;
+package MicrosoftProblem.ChocolateFactory;
 
 import java.util.Scanner;
 

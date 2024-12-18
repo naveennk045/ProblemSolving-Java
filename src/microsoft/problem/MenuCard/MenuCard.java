@@ -1,4 +1,4 @@
-package MenuCard;
+package MicrosoftProblem.MenuCard;
 
 import java.util.Scanner;
 

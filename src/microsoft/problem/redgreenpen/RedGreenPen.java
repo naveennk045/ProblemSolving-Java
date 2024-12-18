@@ -1,4 +1,4 @@
-package RedGreenPen;
+package MicrosoftProblem.RedGreenPen;
 
 import java.util.Scanner;
 
