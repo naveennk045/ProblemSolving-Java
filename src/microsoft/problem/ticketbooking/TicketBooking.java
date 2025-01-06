@@ -1,4 +1,4 @@
-package TicketBooking;
+package microsoft.problem.ticketbooking;
 
 import java.util.Scanner;
 

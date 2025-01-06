@@ -1,4 +1,4 @@
-package MicrosoftProblem.LargestInteger;
+package microsoft.problem.largestinteger;
 
 import java.util.Scanner;
 
