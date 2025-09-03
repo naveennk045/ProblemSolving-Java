@@ -1,11 +1,34 @@
 package monotonic;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Stack;
+
+import java.util.*;
 
 public class NextGreaterElement {
-    public static int[] nextGreaterElementI(int[] nums1, int[] nums2) {
+
+    public static int[] nextGreaterElementsI(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+
+
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 2 * n; i >= 0; i--) {
+            int idx = i % n;
+            while (!stack.isEmpty() && stack.peek() <= nums[idx]) {
+                stack.pop();
+            }
+
+            if (stack.isEmpty()) {
+                result[idx] = -1;
+            } else {
+                result[idx] = stack.peek();
+            }
+            stack.push(nums[idx]);
+        }
+        return result;
+    }
+
+    public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
 
         HashMap<Integer, Integer> greaterElementHolder = new HashMap<>();
         Stack<Integer> stack = new Stack<>();
@@ -26,28 +49,6 @@ public class NextGreaterElement {
             nums1[i] = greaterElementHolder.getOrDefault(nums1[i], -1);
         }
         return nums1;
-
     }
 
-    public static int[] nextGreaterElementsII(int[] nums) {
-        int n = nums.length;
-        int[] newNums = new int[2 * n];
-        for (int i = 0; i < 2 * n; i++) {
-            newNums[i % n] = nums[i % n];
-        }
-        System.out.println(Arrays.toString(newNums));
-        return newNums;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 3};
-
-        // Using assert for validation
-        assert Arrays.equals(
-                nextGreaterElementsII(nums),
-                new int[]{2, 3, 4, -1, 4}
-        ) : "❌ Testcase not passed";
-
-        System.out.println("✅ Test Passed!");
-    }
 }
